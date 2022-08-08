@@ -33,3 +33,15 @@ describe Market do
     @market.add_vendor(@vendor_3)
     expect(@market.vendors).to eq([@vendor_1, @vendor_2, @vendor_3])
   end
+
+  xit 'can list all vendor names' do
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+    expect(@market.vendor_names).to eq(["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
+  end
+
+
+
+
+end
