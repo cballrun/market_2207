@@ -24,7 +24,7 @@ class Market
   end
 
   def total_inventory
-    vendors.map do |vendor|
+    vendors.flat_map do |vendor|
       vendor.inventory.map do |item, amount|
         {
           item => {
@@ -57,5 +57,4 @@ class Market
   def date
     Date.today.strftime("%d/%m/%Y")
   end
-
 end
