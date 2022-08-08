@@ -56,4 +56,66 @@ describe Market do
     expect(@market.vendors_that_sell(@item_3)).to eq([@vendor_2])
     expect(@market.vendors_that_sell(@item_4)).to eq([@vendor_2])
   end
+
+  xit 'can create a hash with the item as the key and a hash with total vendor quantity and list of vendors that sell as the value' do
+    @vendor_1.stock(@item_1, 35)
+    @vendor_1.stock(@item_2, 7)
+    @vendor_2.stock(@item_4, 50)
+    @vendor_2.stock(@item_3, 25)
+    @vendor_3.stock(@item_1, 65)
+    @vendor_3.stock(@item_3, 10)
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
+    expect(@market.total_inventory).to eq({
+      @item_1 => {
+          quantity: 100,
+          vendors: [@vendor_1, @vendor_3]
+        },
+        @item_2 => {
+          quantity: 7,
+          vendors: [@vendor_1]
+        },
+        @item_4 => {
+          quantity: 50,
+          vendors: [@vendor_2]
+        },
+        @item_3 => {
+          quantity: 35,
+          vendors: [@vendor_2, @vendor_3]
+        },
+      })
+    
+  end
+
+  xit 'can tell if an item is overstocked' do #more than one vendor sells && total quantity over 50
+    @vendor_1.stock(@item_1, 35)
+    @vendor_1.stock(@item_2, 7)
+    @vendor_2.stock(@item_4, 50)
+    @vendor_2.stock(@item_3, 25)
+    @vendor_3.stock(@item_1, 65)
+    @vendor_3.stock(@item_3, 10)
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
+    expect(@market.overstocked_items).to eq([@item_1])
+  end
+
+  xit 'can sort in stock item names alphabetically ' do
+    @vendor_1.stock(@item_1, 35)
+    @vendor_1.stock(@item_2, 7)
+    @vendor_2.stock(@item_4, 50)
+    @vendor_2.stock(@item_3, 25)
+    @vendor_3.stock(@item_1, 65)
+    @vendor_3.stock(@item_3, 10)
+    @market.add_vendor(@vendor_1)
+    @market.add_vendor(@vendor_2)
+    @market.add_vendor(@vendor_3)
+
+    expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+  end
+
+
 end
