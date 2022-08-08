@@ -103,7 +103,7 @@ describe Market do
     expect(@market.overstocked_items).to eq([@item_1])
   end
 
-  xit 'can sort in stock item names alphabetically ' do
+  it 'can sort in stock item names alphabetically ' do
     @vendor_1.stock(@item_1, 35)
     @vendor_1.stock(@item_2, 7)
     @vendor_2.stock(@item_4, 50)

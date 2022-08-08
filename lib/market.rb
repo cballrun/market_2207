@@ -43,6 +43,20 @@ class Market
     end.flatten
     [overstocked_items[0]]
   end
+
+  def sorted_item_list
+    vendors.flat_map do |vendor|
+      vendor.inventory.map do |item, amount|
+        item.name
+      end
+    end.uniq.sort
+  end
+
+
+
+
+
+
  
 
 
