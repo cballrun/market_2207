@@ -56,5 +56,4 @@ describe Market do
     expect(@market.vendors_that_sell(@item_3)).to eq([@vendor_2])
     expect(@market.vendors_that_sell(@item_4)).to eq([@vendor_2])
   end
-
 end

@@ -14,10 +14,10 @@ class Vendor
   def stock(ingredient, amount)
     inventory[ingredient] += amount
   end
-
-
-
-
-
-
+  
+  def potential_revenue
+    inventory.sum do |item, amount|
+      item.price * amount
+    end
+  end
 end

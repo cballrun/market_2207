@@ -20,11 +20,4 @@ describe Item do
     expect(@item_1.price).to eq(0.75)
     expect(@item_2.price).to eq(0.50)
   end
-
-
-
-
-
-
-
 end
