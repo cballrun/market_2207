@@ -11,14 +11,14 @@ describe Item do
     expect(@item_2).to be_a(Item)
   end
 
-  xit 'has a name' do
+  it 'has a name' do
     expect(@item_1.name).to eq('Peach')
-    expect(@item_1.name).to eq('Tomato')
+    expect(@item_2.name).to eq('Tomato')
   end
 
-  xit 'has a price that is a float' do
+  it 'has a price that is a float' do
     expect(@item_1.price).to eq(0.75)
-    expect(@item_1.name).to eq(0.50)
+    expect(@item_2.price).to eq(0.50)
   end
 
 
