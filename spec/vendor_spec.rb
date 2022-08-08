@@ -21,8 +21,12 @@ describe Vendor do
   end
 
   it 'can stock an item' do
-    @vendor.stock(item_1, 30)
+    @vendor.stock(@item_1, 30)
     expect(@vendor.check_stock(@item_1)).to eq(30)
+    @vendor.stock(@item_1, 25)
+    expect(@vendor.check_stock(@item_1)).to eq(55)
+    @vendor.stock(@item_2, 12)
+    expect(@vendor.check_stock(@item_2)).to eq(12)
   end
 
 

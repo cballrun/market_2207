@@ -11,6 +11,10 @@ class Vendor
     inventory[item]
   end
 
+  def stock(ingredient, amount)
+    inventory[ingredient] += amount
+  end
+
 
 
 
