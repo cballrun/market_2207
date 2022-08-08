@@ -1,7 +1,7 @@
 require './lib/item'
 require './lib/vendor'
 
-describe Item do
+describe Vendor do
   before :each do
     @item_1 = Item.new({name: 'Peach', price: "$0.75"})
     @item_2 =  Item.new({name: 'Tomato', price: '$0.50'})
@@ -15,3 +15,12 @@ describe Item do
   it 'initializes with an empty inventory hash' do
     expect(@vendor.inventory).to eq({})
   end
+
+  it 'can check stock of an item' do
+    expect(@vendor.check_stock(@item_1)).to eq(0)
+  end
+
+
+  
+
+end
