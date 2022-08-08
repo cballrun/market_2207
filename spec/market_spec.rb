@@ -15,6 +15,10 @@ describe Market do
   end
 
   it 'exists' do
+    expect(@market).to be_a(Market)
+  end
+
+  it 'has a name' do
     expect(@market.name).to eq("South Pearl Street Farmers Market")
   end
 
