@@ -1,6 +1,7 @@
 require './lib/item'
 require './lib/vendor'
 require './lib/market'
+require 'date'
 
 describe Market do
   before :each do
@@ -115,5 +116,11 @@ describe Market do
     @market.add_vendor(@vendor_3)
 
     expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+  end
+
+  it 'can tell the date' do
+    expect(@market.date).to eq("08/08/2022")
+    allow(@market).to receive(:date).and_return("24/02/2020")
+    expect(@market.date).to eq("24/02/2020")
   end
 end

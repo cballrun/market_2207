@@ -53,4 +53,9 @@ class Market
       end
     end.uniq.sort
   end
+  
+  def date
+    Date.today.strftime("%d/%m/%Y")
+  end
+
 end
