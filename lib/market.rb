@@ -23,6 +23,18 @@ class Market
     end
   end
 
+  # def total_inventory
+  #   vendors.map do |vendor|
+  #     {
+  #       item => {
+  #         quantity:
+  #         vendors:
+  #       }
+  #     }
+  #     end
+  #   end
+
+
  
 
 
