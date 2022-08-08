@@ -34,8 +34,17 @@ class Market
   #     end
   #   end
 
-
+  def overstocked_items
+    overstocked_items =
+    vendors.flat_map do |vendor|
+      vendor.inventory.find_all do |item, amount|
+        vendors_that_sell(item).length >=2 && vendor.check_stock(item) >= 50
+      end
+    end.flatten
+    [overstocked_items[0]]
+  end
  
+
 
 
 end

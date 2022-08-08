@@ -89,7 +89,7 @@ describe Market do
     
   end
 
-  xit 'can tell if an item is overstocked' do #more than one vendor sells && total quantity over 50
+  it 'can tell if an item is overstocked' do #more than one vendor sells && total quantity over 50
     @vendor_1.stock(@item_1, 35)
     @vendor_1.stock(@item_2, 7)
     @vendor_2.stock(@item_4, 50)

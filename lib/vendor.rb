@@ -11,8 +11,8 @@ class Vendor
     inventory[item]
   end
 
-  def stock(ingredient, amount)
-    inventory[ingredient] += amount
+  def stock(item, amount)
+    inventory[item] += amount
   end
   
   def potential_revenue
