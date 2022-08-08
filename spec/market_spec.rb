@@ -57,7 +57,7 @@ describe Market do
     expect(@market.vendors_that_sell(@item_4)).to eq([@vendor_2])
   end
 
-  xit 'can create a hash with the item as the key and a hash with total vendor quantity and list of vendors that sell as the value' do
+  it 'can create a hash with the item as the key and a hash with total vendor quantity and list of vendors that sell as the value' do
     @vendor_1.stock(@item_1, 35)
     @vendor_1.stock(@item_2, 7)
     @vendor_2.stock(@item_4, 50)
@@ -89,7 +89,7 @@ describe Market do
     
   end
 
-  it 'can tell if an item is overstocked' do #more than one vendor sells && total quantity over 50
+  it 'can tell if an item is overstocked' do 
     @vendor_1.stock(@item_1, 35)
     @vendor_1.stock(@item_2, 7)
     @vendor_2.stock(@item_4, 50)
@@ -116,6 +116,4 @@ describe Market do
 
     expect(@market.sorted_item_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
   end
-
-
 end

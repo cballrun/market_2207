@@ -6,10 +6,4 @@ class Item
     @name = attributes[:name]
     @price = attributes[:price].gsub(/[^\d\.]/, '').to_f
   end
-
-
-
-
-
 end
-

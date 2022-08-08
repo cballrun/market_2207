@@ -23,16 +23,18 @@ class Market
     end
   end
 
-  # def total_inventory
-  #   vendors.map do |vendor|
-  #     {
-  #       item => {
-  #         quantity:
-  #         vendors:
-  #       }
-  #     }
-  #     end
-  #   end
+  def total_inventory
+    vendors.map do |vendor|
+      vendor.inventory.map do |item, amount|
+        {
+          item => {
+            quantity: vendor.check_stock(item),
+            vendors: vendor
+          }
+        }
+      end
+    end
+  end
 
   def overstocked_items
     overstocked_items =
@@ -51,14 +53,4 @@ class Market
       end
     end.uniq.sort
   end
-
-
-
-
-
-
- 
-
-
-
 end
